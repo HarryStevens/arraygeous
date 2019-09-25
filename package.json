@@ -1,0 +1,40 @@
+{
+  "name": "arraygeous",
+  "version": "0.0.1",
+  "description": "A JavaScript library for lightning fast Array manipulation.",
+  "main": "build/arraygeous.js",
+  "scripts": {
+    "pretest": "rm -rf build && mkdir build && rollup -c --banner \"$(preamble)\"",
+    "test": "tape 'test/**/*-test.js'",
+    "prepublish": "npm run test && uglifyjs build/arraygeous.js -c -m -o build/arraygeous.min.js",
+    "postpublish": "zip -j build/arraygeous.zip -- LICENSE README.md build/arraygeous.js build/arraygeous.min.js"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "babel": "^6.23.0",
+    "package-preamble": "0.1",
+    "rollup": "^0.62.0",
+    "rollup-plugin-babel": "^4.3.2",
+    "tape": "4",
+    "uglify-js": "^2.8.11"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HarryStevens/arraygeous.git"
+  },
+  "keywords": [
+    "arrays",
+    "javascript"
+  ],
+  "author": {
+    "name": "Harry Stevens",
+    "email": "harryjosephstevens@gmail.com",
+    "url": "http://harryjstevens.com/"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/HarryStevens/arraygeous/issues"
+  },
+  "homepage": "https://github.com/HarryStevens/arraygeous#readme"
+}
