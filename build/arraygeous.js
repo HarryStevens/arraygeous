@@ -22,6 +22,20 @@
     return includes;
   }
 
+  // Returns the sum of an array of numbers.
+  // You can pass an optional accessor.
+  // Ignores null values.
+  function sum(arr, fn) {
+    var sum = 0;
+
+    for (var i = 0, n = arr.length; i < n; i++) {
+      var val = fn ? fn(arr[i], i, arr) : arr[i];
+      if (val != null && isFinite(val)) sum += val;
+    }
+
+    return sum;
+  }
+
   function unique(arr, fn) {
     var out = [];
 
@@ -34,6 +48,7 @@
   }
 
   exports.includes = includes;
+  exports.sum = sum;
   exports.unique = unique;
 
   Object.defineProperty(exports, '__esModule', { value: true });
