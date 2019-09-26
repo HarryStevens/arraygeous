@@ -1,7 +1,7 @@
 {
   "name": "arraygeous",
   "version": "0.0.4",
-  "description": "A JavaScript library for lightning fast Array manipulation.",
+  "description": "A JavaScript library for lightning fast array manipulation.",
   "main": "build/arraygeous.js",
   "scripts": {
     "pretest": "rm -rf build && mkdir build && rollup -c --banner \"$(preamble)\"",
