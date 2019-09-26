@@ -36,6 +36,11 @@
     return sum;
   }
 
+  // Returns a random item from an array
+  function random(arr) {
+    return arr[Math.floor(Math.random() * arr.length)];
+  }
+
   function unique(arr, fn) {
     var out = [];
 
@@ -49,6 +54,7 @@
 
   exports.includes = includes;
   exports.sum = sum;
+  exports.random = random;
   exports.unique = unique;
 
   Object.defineProperty(exports, '__esModule', { value: true });
