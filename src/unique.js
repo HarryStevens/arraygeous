@@ -1,6 +1,6 @@
 import { includes } from "./includes";
 
-// Returns the unique values of an array of objects according to an optinional accessor.
+// Returns the unique values of an array of objects according to an optional accessor.
 export function unique(arr, fn){
   let out = [];
   
