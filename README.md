@@ -6,8 +6,8 @@ A JavaScript library for lightning fast array manipulation. [![Build Status](htt
 ### Web browser
 In vanilla, a `arr` global is exported. You can use the latest version from unpkg.
 ```html
-<script src="https://unpkg.com/arraygeous@0.0.5/build/arraygeous.js"></script>
-<script src="https://unpkg.com/arraygeous@0.0.5/build/arraygeous.min.js"></script>
+<script src="https://unpkg.com/arraygeous@0.0.6/build/arraygeous.js"></script>
+<script src="https://unpkg.com/arraygeous@0.0.6/build/arraygeous.min.js"></script>
 ```
 If you'd rather host it yourself, download the latest release from the [`build` directory](https://github.com/HarryStevens/arraygeous/tree/master/build).
 
@@ -25,9 +25,21 @@ const arr = require("arraygeous");
 
 Tests whether every item in an <i>array</i> passes a test, specified as an <i>accessor</i> function. Returns a boolean.
 
+<a name="extent" href="#extent">#</a> arr.<b>extent</b>(<i>array</i>[, <i>accessor</i>]) · [Source](https://github.com/HarryStevens/arraygeous/tree/master/src/extent.js)
+
+Returns the minimum and maximum values, represented as [min, max], of an <i>array</i> according to an optional <i>accessor</i> function.
+
 <a name="includes" href="#includes">#</a> arr.<b>includes</b>(<i>array</i>, <i>value</i>[, <i>start</i>]) · [Source](https://github.com/HarryStevens/arraygeous/tree/master/src/includes.js)
 
 Tests whether an <i>array</i> includes a <i>value</i>. You can specify where in the array to begin the seach with an optional <em>start</em> index. Returns a boolean.
+
+<a name="max" href="#max">#</a> arr.<b>max</b>(<i>array</i>[, <i>accessor</i>]) · [Source](https://github.com/HarryStevens/arraygeous/tree/master/src/max.js)
+
+Returns the maximum value of an <i>array</i> according to an optional <i>accessor</i> function.
+
+<a name="min" href="#min">#</a> arr.<b>min</b>(<i>array</i>[, <i>accessor</i>]) · [Source](https://github.com/HarryStevens/arraygeous/tree/master/src/min.js)
+
+Returns the minimum value of an <i>array</i> according to an optional <i>accessor</i> function.
 
 <a name="random" href="#random">#</a> arr.<b>random</b>(<i>array</i>) · [Source](https://github.com/HarryStevens/arraygeous/tree/master/src/random.js)
 

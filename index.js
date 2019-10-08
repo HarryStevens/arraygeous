@@ -1,5 +1,8 @@
 export { every } from "./src/every";
+export { extent } from "./src/extent";
 export { includes } from "./src/includes";
+export { max } from "./src/max";
+export { min } from "./src/min";
 export { random } from "./src/random";
 export { sort } from "./src/sort";
 export { sum } from "./src/sum";

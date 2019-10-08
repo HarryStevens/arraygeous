@@ -19,6 +19,23 @@
     return out;
   }
 
+  // Returns the minimum and maximum values, represented as [min, max], of an array according to an option accessor function.
+  function extent(arr, fn) {
+    var min = Infinity,
+        max = -Infinity;
+
+    for (var i = 0, n = arr.length; i < n; i++) {
+      var d = fn ? fn(arr[i], i, arr) : arr[i];
+
+      if (d != null && isFinite(d)) {
+        if (d < min) min = d;
+        if (d > max) max = d;
+      }
+    }
+
+    return [min, max];
+  }
+
   // Determines whether an array contains a specified element.
   // This method returns true if the array contains the element, and false if not.
   // The optional start parameter, which defaults 0, specifies at which position in the array to start the search.
@@ -34,6 +51,30 @@
     }
 
     return includes;
+  }
+
+  // Returns the maximum value of an array according to an option accessor function.
+  function max(arr, fn) {
+    var max = -Infinity;
+
+    for (var i = 0, n = arr.length; i < n; i++) {
+      var d = fn ? fn(arr[i], i, arr) : arr[i];
+      if (d != null && isFinite(d) && d > max) max = d;
+    }
+
+    return max;
+  }
+
+  // Returns the minimum value of an array according to an option accessor function.
+  function min(arr, fn) {
+    var min = Infinity;
+
+    for (var i = 0, n = arr.length; i < n; i++) {
+      var d = fn ? fn(arr[i], i, arr) : arr[i];
+      if (d != null && isFinite(d) && d < min) min = d;
+    }
+
+    return min;
   }
 
   // Returns a random item from an array
@@ -97,7 +138,10 @@
   }
 
   exports.every = every;
+  exports.extent = extent;
   exports.includes = includes;
+  exports.max = max;
+  exports.min = min;
   exports.random = random;
   exports.sort = sort;
   exports.sum = sum;
