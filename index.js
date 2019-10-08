@@ -12,3 +12,5 @@ export { some } from "./src/some";
 export { sort } from "./src/sort";
 export { sum } from "./src/sum";
 export { unique } from "./src/unique";
+
+export { pipe } from "./src/pipe";

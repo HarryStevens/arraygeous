@@ -199,6 +199,28 @@
     return out;
   }
 
+  var fns = [every, extent, filter, includes, map, max, mean, median, min, random, some, sort, sum, unique];
+  function pipe(arr) {
+    var plummer = {};
+    plummer.curr = arr;
+    fns.forEach(function (fn) {
+      plummer[fn.name] = function () {
+        for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+          args[_key] = arguments[_key];
+        }
+
+        plummer.curr = fn.apply(void 0, [plummer.curr].concat(args));
+        return plummer;
+      };
+    });
+
+    plummer.result = function (_) {
+      return plummer.curr;
+    };
+
+    return plummer;
+  }
+
   exports.every = every;
   exports.extent = extent;
   exports.filter = filter;
@@ -213,6 +235,7 @@
   exports.sort = sort;
   exports.sum = sum;
   exports.unique = unique;
+  exports.pipe = pipe;
 
   Object.defineProperty(exports, '__esModule', { value: true });
 

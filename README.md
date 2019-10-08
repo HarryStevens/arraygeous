@@ -6,8 +6,8 @@ A JavaScript library for lightning fast array manipulation. [![Build Status](htt
 ### Web browser
 In vanilla, a `arr` global is exported. You can use the latest version from unpkg.
 ```html
-<script src="https://unpkg.com/arraygeous@0.0.7/build/arraygeous.js"></script>
-<script src="https://unpkg.com/arraygeous@0.0.7/build/arraygeous.min.js"></script>
+<script src="https://unpkg.com/arraygeous@0.1.0/build/arraygeous.js"></script>
+<script src="https://unpkg.com/arraygeous@0.1.0/build/arraygeous.min.js"></script>
 ```
 If you'd rather host it yourself, download the latest release from the [`build` directory](https://github.com/HarryStevens/arraygeous/tree/master/build).
 
@@ -21,9 +21,13 @@ const arr = require("arraygeous");
 ```
 
 ## API
-- [Native](#native)
-- [Math](#math)
-- [Special](#special)
+
+arraygeous provides three types of functions.
+- [Native](#native) JavaScript functions that run faster because arraygeous uses for loops.
+- [Special](#special) functions that are not included among JavaScript's native array functions.
+- [Math](#math) functions that perform arithmetic on arrays.
+
+You can also call multiple functions on the same array by using arr.<b>pipe</b>(<i>array</i>). Return the result of the pipe with <i>pipe</i>.<b>result</b>().
 
 ### Native
 
@@ -46,6 +50,20 @@ Returns a new array with the result of calling an <i>accessor</i> function for e
 <a name="some" href="#some">#</a> arr.<b>some</b>(<i>array</i>, <i>test</i>) · [Source](https://github.com/HarryStevens/arraygeous/tree/master/src/some.js)
 
 Returns a boolean representing whether any item in an <i>array</i> passes a <i>test</i> function.
+
+### Special
+
+<a name="random" href="#random">#</a> arr.<b>random</b>(<i>array</i>) · [Source](https://github.com/HarryStevens/arraygeous/tree/master/src/random.js)
+
+Returns a random item from an <i>array</i>.
+
+<a name="sort" href="#sort">#</a> arr.<b>sort</b>(<i>array</i>[, <i>accessor</i>[, <i>order</i>]]) · [Source](https://github.com/HarryStevens/arraygeous/tree/master/src/sort.js)
+
+Sorts an <i>array</i>. You can map each item in the array to the value returned by an optional <i>accessor</i> function. Defaults to ascending order, but you can return descending order by specifying the third argument, order, as the string "desc".
+
+<a name="unique" href="#unique">#</a> arr.<b>unique</b>(<i>array</i>[, <i>accessor</i>]) · [Source](https://github.com/HarryStevens/arraygeous/tree/master/src/unique.js)
+
+Returns the unique values of an <i>array</i>. You can map each item in the array to the value returned by an optional <i>accessor</i> function.
 
 ### Math
 
@@ -72,17 +90,3 @@ Returns the minimum of an <i>array</i> of values. You can map each item in the a
 <a name="sum" href="#sum">#</a> arr.<b>sum</b>(<i>array</i>[, <i>accessor</i>]) · [Source](https://github.com/HarryStevens/arraygeous/tree/master/src/sum.js)
 
 Returns the sum of an <i>array</i>. You can map each item in the array to the value returned by an optional <i>accessor</i> function. Ignores invalid values (null, undefined, NaN, Infinity).
-
-### Special
-
-<a name="random" href="#random">#</a> arr.<b>random</b>(<i>array</i>) · [Source](https://github.com/HarryStevens/arraygeous/tree/master/src/random.js)
-
-Returns a random item from an <i>array</i>.
-
-<a name="sort" href="#sort">#</a> arr.<b>sort</b>(<i>array</i>[, <i>accessor</i>[, <i>order</i>]]) · [Source](https://github.com/HarryStevens/arraygeous/tree/master/src/sort.js)
-
-Sorts an <i>array</i>. You can map each item in the array to the value returned by an optional <i>accessor</i> function. Defaults to ascending order, but you can return descending order by specifying the third argument, order, as the string "desc".
-
-<a name="unique" href="#unique">#</a> arr.<b>unique</b>(<i>array</i>[, <i>accessor</i>]) · [Source](https://github.com/HarryStevens/arraygeous/tree/master/src/unique.js)
-
-Returns the unique values of an <i>array</i>. You can map each item in the array to the value returned by an optional <i>accessor</i> function.
