@@ -6,8 +6,8 @@ A JavaScript library for lightning fast array manipulation. [![Build Status](htt
 ### Web browser
 In vanilla, a `arr` global is exported. You can use the latest version from unpkg.
 ```html
-<script src="https://unpkg.com/arraygeous@0.0.6/build/arraygeous.js"></script>
-<script src="https://unpkg.com/arraygeous@0.0.6/build/arraygeous.min.js"></script>
+<script src="https://unpkg.com/arraygeous@0.0.7/build/arraygeous.js"></script>
+<script src="https://unpkg.com/arraygeous@0.0.7/build/arraygeous.min.js"></script>
 ```
 If you'd rather host it yourself, download the latest release from the [`build` directory](https://github.com/HarryStevens/arraygeous/tree/master/build).
 
@@ -21,25 +21,59 @@ const arr = require("arraygeous");
 ```
 
 ## API
-<a name="every" href="#every">#</a> arr.<b>every</b>(<i>array</i>, <i>accessor</i>) · [Source](https://github.com/HarryStevens/arraygeous/tree/master/src/every.js)
+- [Native](#native)
+- [Math](#math)
+- [Special](#special)
 
-Tests whether every item in an <i>array</i> passes a test, specified as an <i>accessor</i> function. Returns a boolean.
+### Native
 
-<a name="extent" href="#extent">#</a> arr.<b>extent</b>(<i>array</i>[, <i>accessor</i>]) · [Source](https://github.com/HarryStevens/arraygeous/tree/master/src/extent.js)
+<a name="every" href="#every">#</a> arr.<b>every</b>(<i>array</i>, <i>test</i>) · [Source](https://github.com/HarryStevens/arraygeous/tree/master/src/every.js)
 
-Returns the minimum and maximum values, represented as [min, max], of an <i>array</i> according to an optional <i>accessor</i> function.
+Returns a boolean representing whether every item in an <i>array</i> passes a <i>test</i> function.
+
+<a name="filter" href="#filter">#</a> arr.<b>filter</b>(<i>array</i>, <i>test</i>) · [Source](https://github.com/HarryStevens/arraygeous/tree/master/src/filter.js)
+
+Returns a new array with every element in an <i>array</i> that passes a <i>test</i>, specified as a function.
 
 <a name="includes" href="#includes">#</a> arr.<b>includes</b>(<i>array</i>, <i>value</i>[, <i>start</i>]) · [Source](https://github.com/HarryStevens/arraygeous/tree/master/src/includes.js)
 
-Tests whether an <i>array</i> includes a <i>value</i>. You can specify where in the array to begin the seach with an optional <em>start</em> index. Returns a boolean.
+Returns a boolean representing whether an <i>array</i> includes a <i>value</i>. You can specify where in the array to begin the seach with an optional <i>start</i> index.
+
+<a name="map" href="#map">#</a> arr.<b>map</b>(<i>array</i>, <i>accessor</i>) · [Source](https://github.com/HarryStevens/arraygeous/tree/master/src/map.js)
+
+Returns a new array with the result of calling an <i>accessor</i> function for each <i>array</i> element.
+
+<a name="some" href="#some">#</a> arr.<b>some</b>(<i>array</i>, <i>test</i>) · [Source](https://github.com/HarryStevens/arraygeous/tree/master/src/some.js)
+
+Returns a boolean representing whether any item in an <i>array</i> passes a <i>test</i> function.
+
+### Math
+
+<a name="extent" href="#extent">#</a> arr.<b>extent</b>(<i>array</i>[, <i>accessor</i>]) · [Source](https://github.com/HarryStevens/arraygeous/tree/master/src/extent.js)
+
+Returns the minimum and maximum, represented as [minimum, maximum], of an <i>array</i> of values. You can map each item in the array to a value with an optional <i>accessor</i> function. Ignores invalid values (null, undefined, NaN, Infinity).
 
 <a name="max" href="#max">#</a> arr.<b>max</b>(<i>array</i>[, <i>accessor</i>]) · [Source](https://github.com/HarryStevens/arraygeous/tree/master/src/max.js)
 
-Returns the maximum value of an <i>array</i> according to an optional <i>accessor</i> function.
+Returns the maximum of an <i>array</i> of values. You can map each item in the array to a value with an optional <i>accessor</i> function. Ignores invalid values (null, undefined, NaN, Infinity).
+
+<a name="mean" href="#mean">#</a> arr.<b>mean</b>(<i>array</i>[, <i>accessor</i>]) · [Source](https://github.com/HarryStevens/arraygeous/tree/master/src/mean.js)
+
+Returns the mean of an <i>array</i> of values. You can map each item in the array to a value with an optional <i>accessor</i> function. Ignores invalid values (null, undefined, NaN, Infinity).
+
+<a name="median" href="#median">#</a> arr.<b>median</b>(<i>array</i>[, <i>accessor</i>]) · [Source](https://github.com/HarryStevens/arraygeous/tree/master/src/median.js)
+
+Returns the median of an <i>array</i> of values. You can map each item in the array to a value with an optional <i>accessor</i> function. Ignores invalid values (null, undefined, NaN, Infinity).
 
 <a name="min" href="#min">#</a> arr.<b>min</b>(<i>array</i>[, <i>accessor</i>]) · [Source](https://github.com/HarryStevens/arraygeous/tree/master/src/min.js)
 
-Returns the minimum value of an <i>array</i> according to an optional <i>accessor</i> function.
+Returns the minimum of an <i>array</i> of values. You can map each item in the array to a value with an optional <i>accessor</i> function. Ignores invalid values (null, undefined, NaN, Infinity).
+
+<a name="sum" href="#sum">#</a> arr.<b>sum</b>(<i>array</i>[, <i>accessor</i>]) · [Source](https://github.com/HarryStevens/arraygeous/tree/master/src/sum.js)
+
+Returns the sum of an <i>array</i>. You can map each item in the array to the value returned by an optional <i>accessor</i> function. Ignores invalid values (null, undefined, NaN, Infinity).
+
+### Special
 
 <a name="random" href="#random">#</a> arr.<b>random</b>(<i>array</i>) · [Source](https://github.com/HarryStevens/arraygeous/tree/master/src/random.js)
 
@@ -48,10 +82,6 @@ Returns a random item from an <i>array</i>.
 <a name="sort" href="#sort">#</a> arr.<b>sort</b>(<i>array</i>[, <i>accessor</i>[, <i>order</i>]]) · [Source](https://github.com/HarryStevens/arraygeous/tree/master/src/sort.js)
 
 Sorts an <i>array</i>. You can map each item in the array to the value returned by an optional <i>accessor</i> function. Defaults to ascending order, but you can return descending order by specifying the third argument, order, as the string "desc".
-
-<a name="sum" href="#sum">#</a> arr.<b>sum</b>(<i>array</i>[, <i>accessor</i>]) · [Source](https://github.com/HarryStevens/arraygeous/tree/master/src/sum.js)
-
-Returns the sum of an <i>array</i>. You can map each item in the array to the value returned by an optional <i>accessor</i> function.
 
 <a name="unique" href="#unique">#</a> arr.<b>unique</b>(<i>array</i>[, <i>accessor</i>]) · [Source](https://github.com/HarryStevens/arraygeous/tree/master/src/unique.js)
 
