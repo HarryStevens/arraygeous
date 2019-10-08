@@ -1,4 +1,4 @@
-// https://github.com/HarryStevens/arraygeous#readme Version 0.0.5. Copyright 2019 Harry Stevens.
+// https://github.com/HarryStevens/arraygeous#readme Version 0.0.6. Copyright 2019 Harry Stevens.
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
   typeof define === 'function' && define.amd ? define(['exports'], factory) :
@@ -19,7 +19,7 @@
     return out;
   }
 
-  // Returns the minimum and maximum values, represented as [min, max], of an array according to an option accessor function.
+  // Returns the minimum and maximum values, represented as [min, max], of an array according to an optional accessor function.
   function extent(arr, fn) {
     var min = Infinity,
         max = -Infinity;
@@ -53,7 +53,7 @@
     return includes;
   }
 
-  // Returns the maximum value of an array according to an option accessor function.
+  // Returns the maximum value of an array according to an optional accessor function.
   function max(arr, fn) {
     var max = -Infinity;
 
@@ -65,7 +65,7 @@
     return max;
   }
 
-  // Returns the minimum value of an array according to an option accessor function.
+  // Returns the minimum value of an array according to an optional accessor function.
   function min(arr, fn) {
     var min = Infinity;
 
