@@ -1,6 +1,6 @@
 {
   "name": "arraygeous",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A JavaScript library for lightning fast array manipulation.",
   "main": "build/arraygeous.js",
   "scripts": {
