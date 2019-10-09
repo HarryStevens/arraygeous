@@ -6,8 +6,8 @@ A JavaScript library for lightning fast array manipulation. [![Build Status](htt
 ### Web browser
 In vanilla, a `arr` global is exported. You can use the latest version from unpkg.
 ```html
-<script src="https://unpkg.com/arraygeous@0.1.0/build/arraygeous.js"></script>
-<script src="https://unpkg.com/arraygeous@0.1.0/build/arraygeous.min.js"></script>
+<script src="https://unpkg.com/arraygeous@0.1.1/build/arraygeous.js"></script>
+<script src="https://unpkg.com/arraygeous@0.1.1/build/arraygeous.min.js"></script>
 ```
 If you'd rather host it yourself, download the latest release from the [`build` directory](https://github.com/HarryStevens/arraygeous/tree/master/build).
 
@@ -66,6 +66,10 @@ Sorts an <i>array</i>. You can map each item in the array to the value returned 
 Returns the unique values of an <i>array</i>. You can map each item in the array to the value returned by an optional <i>accessor</i> function.
 
 ### Math
+
+<a name="deviation" href="#deviation">#</a> arr.<b>deviation</b>(<i>array</i>[, <i>accessor</i>]) · [Source](https://github.com/HarryStevens/arraygeous/tree/master/src/deviation.js)
+
+Returns the standard deviation of an <i>array</i> of values. You can map each item in the array to a value with an optional <i>accessor</i> function. Ignores invalid values (null, undefined, NaN, Infinity).
 
 <a name="extent" href="#extent">#</a> arr.<b>extent</b>(<i>array</i>[, <i>accessor</i>]) · [Source](https://github.com/HarryStevens/arraygeous/tree/master/src/extent.js)
 

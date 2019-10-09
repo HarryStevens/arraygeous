@@ -5,6 +5,28 @@
   (factory((global.arr = {})));
 }(this, (function (exports) { 'use strict';
 
+  // Returns the maximum of an array of values.
+  // You can map each item in the array to a value with an optional accessor function.
+  // Ignores invalid values (null, undefined, NaN, Infinity).
+  function deviation(arr, fn) {
+    var delta,
+        count = 0,
+        sum = 0,
+        mean = 0;
+
+    for (var i = 0; i < arr.length; i++) {
+      var d = fn ? fn(arr[i], i, arr) : arr[i];
+
+      if (d != null && isFinite(d)) {
+        delta = d - mean;
+        mean += delta / ++count;
+        sum += delta * (d - mean);
+      }
+    }
+
+    if (count > 1) return Math.sqrt(sum / (count - 1));
+  }
+
   // Returns a boolean representing whether all items in an array pass a test, provided as an accessor function.
   function every(arr, fn) {
     var out = true;
@@ -221,6 +243,7 @@
     return plummer;
   }
 
+  exports.deviation = deviation;
   exports.every = every;
   exports.extent = extent;
   exports.filter = filter;

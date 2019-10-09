@@ -1,3 +1,4 @@
+export { deviation } from "./src/deviation";
 export { every } from "./src/every";
 export { extent } from "./src/extent";
 export { filter } from "./src/filter";
