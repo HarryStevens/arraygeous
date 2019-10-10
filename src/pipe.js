@@ -1,5 +1,7 @@
+import { deviation } from "./deviation";
 import { every } from "./every";
 import { extent } from "./extent";
+import { flatten } from "./flatten";
 import { filter } from "./filter";
 import { includes } from "./includes";
 import { map } from "./map";
@@ -14,9 +16,11 @@ import { sum } from "./sum";
 import { unique } from "./unique";
 
 const fns = [
+  deviation,
   every,
   extent,
   filter,
+  flatten,
   includes,
   map,
   max,
