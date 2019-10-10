@@ -6,8 +6,8 @@ A JavaScript library for lightning fast array manipulation. [![Build Status](htt
 ### Web browser
 In vanilla, a `arr` global is exported. You can use the latest version from unpkg.
 ```html
-<script src="https://unpkg.com/arraygeous@0.1.1/build/arraygeous.js"></script>
-<script src="https://unpkg.com/arraygeous@0.1.1/build/arraygeous.min.js"></script>
+<script src="https://unpkg.com/arraygeous@0.1.2/build/arraygeous.js"></script>
+<script src="https://unpkg.com/arraygeous@0.1.2/build/arraygeous.min.js"></script>
 ```
 If you'd rather host it yourself, download the latest release from the [`build` directory](https://github.com/HarryStevens/arraygeous/tree/master/build).
 
@@ -52,6 +52,10 @@ Returns a new array with the result of calling an <i>accessor</i> function for e
 Returns a boolean representing whether any item in an <i>array</i> passes a <i>test</i> function.
 
 ### Special
+
+<a name="flatten" href="#flatten">#</a> arr.<b>flatten</b>(<i>array</i>) · [Source](https://github.com/HarryStevens/arraygeous/tree/master/src/flatten.js)
+
+Returns a single array from an <i>array</i> of arrays.
 
 <a name="random" href="#random">#</a> arr.<b>random</b>(<i>array</i>) · [Source](https://github.com/HarryStevens/arraygeous/tree/master/src/random.js)
 

@@ -70,6 +70,11 @@
     return out;
   }
 
+  // Flattens an array of arrays into a single array.
+  function flatten(arr) {
+    return [].concat.apply([], arr);
+  }
+
   // Determines whether an array contains a specified element.
   // This method returns true if the array contains the element, and false if not.
   // The optional start parameter, which defaults 0, specifies at which position in the array to start the search.
@@ -247,6 +252,7 @@
   exports.every = every;
   exports.extent = extent;
   exports.filter = filter;
+  exports.flatten = flatten;
   exports.includes = includes;
   exports.map = map;
   exports.max = max;

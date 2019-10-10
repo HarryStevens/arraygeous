@@ -2,6 +2,7 @@ export { deviation } from "./src/deviation";
 export { every } from "./src/every";
 export { extent } from "./src/extent";
 export { filter } from "./src/filter";
+export { flatten } from "./src/flatten";
 export { includes } from "./src/includes";
 export { map } from "./src/map";
 export { max } from "./src/max";
