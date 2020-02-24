@@ -1,3 +1,4 @@
+import { closest } from "./closest";
 import { deviation } from "./deviation";
 import { every } from "./every";
 import { extent } from "./extent";
@@ -16,6 +17,7 @@ import { sum } from "./sum";
 import { unique } from "./unique";
 
 const fns = [
+  closest
   deviation,
   every,
   extent,

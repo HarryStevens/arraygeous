@@ -1,9 +1,31 @@
-// https://github.com/HarryStevens/arraygeous#readme Version 0.1.4. Copyright 2019 Harry Stevens.
+// https://github.com/HarryStevens/arraygeous#readme Version 0.1.4. Copyright 2020 Harry Stevens.
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
   typeof define === 'function' && define.amd ? define(['exports'], factory) :
   (factory((global.arr = {})));
 }(this, (function (exports) { 'use strict';
+
+  // Finds the closest element in an array to a value.
+  // The array can be mapped to an optional accessor function.
+  function closest(arr, val, fn) {
+    var min = Infinity,
+        minI = null;
+
+    for (var i = 0, n = arr.length; i < n; i++) {
+      var d = fn ? fn(arr[i]) : arr[i];
+
+      if (d != null && isFinite(d)) {
+        var diff = Math.abs(d - val);
+
+        if (diff < min) {
+          min = diff;
+          minI = i;
+        }
+      }
+    }
+
+    return minI !== null ? arr[minI] : minI;
+  }
 
   // Returns the maximum of an array of values.
   // You can map each item in the array to a value with an optional accessor function.
@@ -248,6 +270,7 @@
     return plummer;
   }
 
+  exports.closest = closest;
   exports.deviation = deviation;
   exports.every = every;
   exports.extent = extent;

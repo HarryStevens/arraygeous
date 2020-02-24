@@ -1,3 +1,4 @@
+export { closest } from "./src/closest";
 export { deviation } from "./src/deviation";
 export { every } from "./src/every";
 export { extent } from "./src/extent";
