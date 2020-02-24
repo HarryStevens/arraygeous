@@ -17,7 +17,7 @@ import { sum } from "./sum";
 import { unique } from "./unique";
 
 const fns = [
-  closest
+  closest,
   deviation,
   every,
   extent,

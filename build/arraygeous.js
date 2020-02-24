@@ -1,4 +1,4 @@
-// https://github.com/HarryStevens/arraygeous#readme Version 0.1.4. Copyright 2020 Harry Stevens.
+// https://github.com/HarryStevens/arraygeous#readme Version 0.1.5. Copyright 2020 Harry Stevens.
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
   typeof define === 'function' && define.amd ? define(['exports'], factory) :
@@ -248,7 +248,7 @@
     return out;
   }
 
-  var fns = [deviation, every, extent, filter, flatten, includes, map, max, mean, median, min, random, some, sort, sum, unique];
+  var fns = [closest, deviation, every, extent, filter, flatten, includes, map, max, mean, median, min, random, some, sort, sum, unique];
   function pipe(arr) {
     var plummer = {};
     plummer.curr = arr;
