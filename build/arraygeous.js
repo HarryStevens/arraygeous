@@ -92,9 +92,19 @@
     return out;
   }
 
-  // Flattens an array of arrays into a single array.
-  function flatten(arr) {
-    return [].concat.apply([], arr);
+  // Returns a new array with the result of calling an accessor function for each array element.
+  function map(arr, fn) {
+    var out = [];
+
+    for (var i = 0, l = arr.length; i < l; i++) {
+      out.push(fn(arr[i], i, arr));
+    }
+
+    return out;
+  }
+
+  function flatten(arr, fn) {
+    return [].concat.apply([], fn ? map(arr, fn) : arr);
   }
 
   // Determines whether an array contains a specified element.
@@ -112,17 +122,6 @@
     }
 
     return includes;
-  }
-
-  // Returns a new array with the result of calling an accessor function for each array element.
-  function map(arr, fn) {
-    var out = [];
-
-    for (var i = 0, l = arr.length; i < l; i++) {
-      out.push(fn(arr[i], i, arr));
-    }
-
-    return out;
   }
 
   // Returns the maximum value of an array according to an optional accessor function.

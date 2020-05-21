@@ -6,8 +6,8 @@ A JavaScript library for lightning fast array manipulation. [![Build Status](htt
 ### Web browser
 In vanilla, a `arr` global is exported. You can use the latest version from unpkg.
 ```html
-<script src="https://unpkg.com/arraygeous@0.1.6/build/arraygeous.js"></script>
-<script src="https://unpkg.com/arraygeous@0.1.6/build/arraygeous.min.js"></script>
+<script src="https://unpkg.com/arraygeous@0.1.7/build/arraygeous.js"></script>
+<script src="https://unpkg.com/arraygeous@0.1.7/build/arraygeous.min.js"></script>
 ```
 If you'd rather host it yourself, download the latest release from the [`build` directory](https://github.com/HarryStevens/arraygeous/tree/master/build).
 
@@ -57,9 +57,9 @@ Returns a boolean representing whether any item in an <i>array</i> passes a <i>t
 
 Returns the closest element in an <i>array</i> to a <i>value</i>, ignoring invalid values (null, undefined, NaN, Infinity) in the array. The array can be mapped to an optional <i>accessor</i> function.
 
-<a name="flatten" href="#flatten">#</a> arr.<b>flatten</b>(<i>array</i>) · [Source](https://github.com/HarryStevens/arraygeous/tree/master/src/flatten.js)
+<a name="flatten" href="#flatten">#</a> arr.<b>flatten</b>(<i>array</i>[, <i>accessor</i>]) · [Source](https://github.com/HarryStevens/arraygeous/tree/master/src/flatten.js)
 
-Returns a single array from an <i>array</i> of arrays.
+Returns a single array from an <i>array</i> of arrays. You can map each item in the array to the value returned by an optional <i>accessor</i> function.
 
 <a name="random" href="#random">#</a> arr.<b>random</b>(<i>array</i>) · [Source](https://github.com/HarryStevens/arraygeous/tree/master/src/random.js)
 
