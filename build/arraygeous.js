@@ -156,22 +156,37 @@
   // Sorts an array according to an optional accessor function.
   function sort(arr, fn, order) {
     var copy = arr.slice(),
-        numSort = every(copy, function (d, i, e) {
-      return typeof (fn ? fn(d, i, e) : d) === "number";
-    });
-    var i = 0;
+        invalid = [],
+        valid = [];
+    var numSort = true; // Separate invalid values
+
+    for (var iter = 0, len = copy.length; iter < len; iter++) {
+      var d = copy[iter],
+          value = fn ? fn(d, iter, copy) : d;
+
+      if (fn ? fn(d, iter, copy) : d) {
+        valid.push(d);
+        if (typeof val !== "number") numSort = false;
+      } else {
+        invalid.push(d);
+      }
+    } // Sort valid objects
+
+
+    var i = 0,
+        output = [];
 
     if (numSort) {
-      return copy.sort(function (a, b) {
-        var da = fn ? fn(a, i + 1, copy) : a;
-        var db = fn ? fn(b, i, copy) : b;
+      output = valid.sort(function (a, b) {
+        var da = fn ? fn(a, i + 1, valid) : a;
+        var db = fn ? fn(b, i, valid) : b;
         i++;
         return order === "desc" ? db - da : da - db;
       });
     } else {
-      return copy.sort(function (a, b) {
-        var da = fn ? fn(a, i + 1, copy) : a;
-        var db = fn ? fn(b, i, copy) : b;
+      output = valid.sort(function (a, b) {
+        var da = fn ? fn(a, i + 1, valid) : a;
+        var db = fn ? fn(b, i, valid) : b;
         i++;
 
         if (order === "desc") {
@@ -181,6 +196,8 @@
         }
       });
     }
+
+    return flatten([output, invalid]);
   }
 
   function median(arr, fn) {

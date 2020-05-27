@@ -6,8 +6,8 @@ A JavaScript library for lightning fast array manipulation. [![Build Status](htt
 ### Web browser
 In vanilla, a `arr` global is exported. You can use the latest version from unpkg.
 ```html
-<script src="https://unpkg.com/arraygeous@0.1.7/build/arraygeous.js"></script>
-<script src="https://unpkg.com/arraygeous@0.1.7/build/arraygeous.min.js"></script>
+<script src="https://unpkg.com/arraygeous@0.1.8/build/arraygeous.js"></script>
+<script src="https://unpkg.com/arraygeous@0.1.8/build/arraygeous.min.js"></script>
 ```
 If you'd rather host it yourself, download the latest release from the [`build` directory](https://github.com/HarryStevens/arraygeous/tree/master/build).
 
@@ -67,7 +67,7 @@ Returns a random item from an <i>array</i>.
 
 <a name="sort" href="#sort">#</a> arr.<b>sort</b>(<i>array</i>[, <i>accessor</i>[, <i>order</i>]]) · [Source](https://github.com/HarryStevens/arraygeous/tree/master/src/sort.js)
 
-Sorts an <i>array</i>. You can map each item in the array to the value returned by an optional <i>accessor</i> function. Defaults to ascending order, but you can return descending order by specifying the third argument, order, as the string "desc".
+Sorts an <i>array</i>. You can map each item in the array to the value returned by an optional <i>accessor</i> function. Defaults to ascending order, but you can return descending order by specifying the third argument, order, as the string "desc". Invalid values other than Infinity and -Infinity (null, undefined, NaN) will be moved to the end.
 
 <a name="unique" href="#unique">#</a> arr.<b>unique</b>(<i>array</i>[, <i>accessor</i>]) · [Source](https://github.com/HarryStevens/arraygeous/tree/master/src/unique.js)
 

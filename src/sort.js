@@ -1,18 +1,36 @@
 // Sorts an array according to an optional accessor function.
 // Defaults to ascending order, but you can return descending order by specifying the third argument, order, as the string "desc".
-// Dependencies: every
+// Dependencies: every, filter
 import { every } from "./every";
+import { flatten } from "./flatten";
 
 export function sort(arr, fn, order){
   const copy = arr.slice(),
-        numSort = every(copy, (d, i, e) => typeof (fn ? fn(d, i, e) : d) === "number");
-  
-  let i = 0;
+        invalid = [],
+        valid = [];
+
+  let numSort = true;
+
+  // Separate invalid values
+  for (let iter = 0, len = copy.length; iter < len; iter++){
+    const d = copy[iter], value = fn ? fn(d, iter, copy) : d;
+    if (fn ? fn(d, iter, copy) : d) {
+      valid.push(d);
+
+      if (typeof val !== "number") numSort = false;
+    }
+    else {
+      invalid.push(d);
+    }
+  }
+
+  // Sort valid objects
+  let i = 0, output = [];
   
   if (numSort){
-    return copy.sort((a, b) => {
-      const da = fn ? fn(a, i + 1, copy) : a;
-      const db = fn ? fn(b, i, copy) : b;
+    output = valid.sort((a, b) => {
+      const da = fn ? fn(a, i + 1, valid) : a;
+      const db = fn ? fn(b, i, valid) : b;
       i++;
       
       return order === "desc" ? db - da : da - db;
@@ -20,9 +38,9 @@ export function sort(arr, fn, order){
   }
   
   else {
-    return copy.sort((a, b) => {
-      const da = fn ? fn(a, i + 1, copy) : a;
-      const db = fn ? fn(b, i, copy) : b;
+    output = valid.sort((a, b) => {
+      const da = fn ? fn(a, i + 1, valid) : a;
+      const db = fn ? fn(b, i, valid) : b;
       i++;
       
       if (order === "desc"){
@@ -33,4 +51,6 @@ export function sort(arr, fn, order){
       }
     });
   }
+
+  return flatten([output, invalid]);
 }

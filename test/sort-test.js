@@ -12,3 +12,14 @@ tape("sort sorts an array", test => {
   test.deepEqual(arr.sort([{letter: "a"}, {letter: "c"}, {letter: "b"}], d => d.letter, "desc"), [{letter: "c"}, {letter: "b"}, {letter: "a"}]);
   test.end();
 });
+
+tape("sort puts invalid values at the end", test => {
+  test.deepEqual(arr.sort([1, null, undefined, 6, 5, 4]), [1, 4, 5, 6, null, undefined]);
+  test.deepEqual(arr.sort([1, null, undefined, 6, 5, 4], null, "desc"), [6, 5, 4, 1, null, undefined]);
+  test.deepEqual(arr.sort([{value: 1}, {value: null}, {value: undefined}, {value: 6}, {value: 5}, {value: 4}], d => d.value), [{value: 1}, {value: 4}, {value: 5}, {value: 6}, {value: null}, {value: undefined}]);
+  test.deepEqual(arr.sort([{value: 1}, {value: null}, {value: undefined}, {value: 6}, {value: 5}, {value: 4}], d => d.value, "desc"), [{value: 6}, {value: 5}, {value: 4}, {value: 1}, {value: null}, {value: undefined}]);
+  test.deepEqual(arr.sort(["a", null, undefined, "c", "b"]), ["a", "b", "c", null, undefined]);
+  test.deepEqual(arr.sort(["a", null, undefined, "c", "b"], null, "desc"), ["c", "b", "a", null, undefined]);
+  test.deepEqual(arr.sort([1, null, undefined, 6, 5, 4, -Infinity, Infinity], null, "desc"), [Infinity, 6, 5, 4, 1, -Infinity, null, undefined]);
+  test.end();
+});
