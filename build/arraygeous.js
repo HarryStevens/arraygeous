@@ -173,31 +173,23 @@
     } // Sort valid objects
 
 
-    var i = 0,
-        output = [];
+    var i = 0;
+    valid.sort(function (a, b) {
+      var da = fn ? fn(a, i + 1, valid) : a;
+      var db = fn ? fn(b, i, valid) : b;
+      i++;
 
-    if (numSort) {
-      output = valid.sort(function (a, b) {
-        var da = fn ? fn(a, i + 1, valid) : a;
-        var db = fn ? fn(b, i, valid) : b;
-        i++;
+      if (numSort) {
         return order === "desc" ? db - da : da - db;
-      });
-    } else {
-      output = valid.sort(function (a, b) {
-        var da = fn ? fn(a, i + 1, valid) : a;
-        var db = fn ? fn(b, i, valid) : b;
-        i++;
-
+      } else {
         if (order === "desc") {
           return da < db ? 1 : da > db ? -1 : 0;
         } else {
           return da < db ? -1 : da > db ? 1 : 0;
         }
-      });
-    }
-
-    return flatten([output, invalid]);
+      }
+    });
+    return flatten([valid, invalid]);
   }
 
   function median(arr, fn) {
