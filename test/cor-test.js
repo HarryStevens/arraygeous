@@ -1,18 +1,18 @@
 const tape = require("tape"),
     arr = require("../");
 
-tape("pearson returns the Pearson correlation coefficient from an array according to optional x- and y- accessor functions", test => {
-  test.equal(arr.pearson([
+tape("cor returns the correlation coefficient from an array according to optional x- and y- accessor functions", test => {
+  test.equal(arr.cor([
     [1, 1],
     [2, 2]
   ]), 1);
   
-  test.equal(arr.pearson([
+  test.equal(arr.cor([
     [1, 2],
     [2, 1]
   ]), -1);
 
-  test.equal(arr.pearson([
+  test.equal(arr.cor([
     [50, 58],
     [80, 97],
     [95, 81],
@@ -25,17 +25,17 @@ tape("pearson returns the Pearson correlation coefficient from an array accordin
     [5, 16]
   ]), 0.7686905046342282);
 
-  test.equal(arr.pearson([
+  test.equal(arr.cor([
     {sales: 10, temperature: 50},
     {sales: 20, temperature: 60}
   ], d => d.sales, d => d.temperature), 1);
 
-  test.equal(arr.pearson([
+  test.equal(arr.cor([
     {sales: 20, temperature: 50},
     {sales: 10, temperature: 60}
   ], d => d.sales, d => d.temperature), -1);
 
-  test.equal(arr.pearson([
+  test.equal(arr.cor([
     {sales: 50, temperature: 58},
     {sales: 80, temperature: 97},
     {sales: 95, temperature: 81},

@@ -1,5 +1,5 @@
-// Returns the Pearson correlation coefficient for an array given optional x- and y-accessors
-export function pearson(arr, x, y){
+// Returns the correlation coefficient for an array given optional x- and y-accessors
+export function cor(arr, x, y){
   let n = arr.length,
       xfn = x || (d => d[0]),
       yfn = y || (d => d[1]),

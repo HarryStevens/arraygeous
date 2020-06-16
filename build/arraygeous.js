@@ -27,6 +27,35 @@
     return minI !== null ? arr[minI] : minI;
   }
 
+  // Returns the correlation coefficient for an array given optional x- and y-accessors
+  function cor(arr, x, y) {
+    var n = arr.length,
+        xfn = x || function (d) {
+      return d[0];
+    },
+        yfn = y || function (d) {
+      return d[1];
+    },
+        xSum = 0,
+        ySum = 0,
+        xySum = 0,
+        x2Sum = 0,
+        y2Sum = 0;
+
+    for (var i = 0; i < n; i++) {
+      var d = arr[i],
+          dx = xfn(d, i, arr),
+          dy = yfn(d, i, arr);
+      xSum += dx;
+      ySum += dy;
+      xySum += dx * dy;
+      x2Sum += dx * dx;
+      y2Sum += dy * dy;
+    }
+
+    return (n * xySum - xSum * ySum) / Math.sqrt((n * x2Sum - xSum * xSum) * (n * y2Sum - ySum * ySum));
+  }
+
   // Returns the maximum of an array of values.
   // You can map each item in the array to a value with an optional accessor function.
   // Ignores invalid values (null, undefined, NaN, Infinity).
@@ -212,35 +241,6 @@
     return min;
   }
 
-  // Returns the Pearson correlation coefficient for an array given optional x- and y-accessors
-  function pearson(arr, x, y) {
-    var n = arr.length,
-        xfn = x || function (d) {
-      return d[0];
-    },
-        yfn = y || function (d) {
-      return d[1];
-    },
-        xSum = 0,
-        ySum = 0,
-        xySum = 0,
-        x2Sum = 0,
-        y2Sum = 0;
-
-    for (var i = 0; i < n; i++) {
-      var d = arr[i],
-          dx = xfn(d, i, arr),
-          dy = yfn(d, i, arr);
-      xSum += dx;
-      ySum += dy;
-      xySum += dx * dy;
-      x2Sum += dx * dx;
-      y2Sum += dy * dy;
-    }
-
-    return (n * xySum - xSum * ySum) / Math.sqrt((n * x2Sum - xSum * xSum) * (n * y2Sum - ySum * ySum));
-  }
-
   // Returns a random item from an array
   function random(arr) {
     return arr[Math.floor(Math.random() * arr.length)];
@@ -308,6 +308,7 @@
   }
 
   exports.closest = closest;
+  exports.cor = cor;
   exports.deviation = deviation;
   exports.every = every;
   exports.extent = extent;
@@ -319,7 +320,6 @@
   exports.mean = mean;
   exports.median = median;
   exports.min = min;
-  exports.pearson = pearson;
   exports.random = random;
   exports.some = some;
   exports.sort = sort;

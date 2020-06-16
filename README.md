@@ -6,8 +6,8 @@ A JavaScript library for lightning fast array manipulation. [![Build Status](htt
 ### Web browser
 In vanilla, a `arr` global is exported. You can use the latest version from unpkg.
 ```html
-<script src="https://unpkg.com/arraygeous@0.1.10/build/arraygeous.js"></script>
-<script src="https://unpkg.com/arraygeous@0.1.10/build/arraygeous.min.js"></script>
+<script src="https://unpkg.com/arraygeous@0.1.11/build/arraygeous.js"></script>
+<script src="https://unpkg.com/arraygeous@0.1.11/build/arraygeous.min.js"></script>
 ```
 If you'd rather host it yourself, download the latest release from the [`build` directory](https://github.com/HarryStevens/arraygeous/tree/master/build).
 
@@ -75,6 +75,10 @@ Returns the unique values of an <i>array</i>. You can map each item in the array
 
 ### Math
 
+<a name="cor" href="#cor">#</a> arr.<b>cor</b>(<i>array</i>[, <i>x</i>, <i>y</i>]) · [Source](https://github.com/HarryStevens/arraygeous/tree/master/src/cor.js)
+
+Returns the [correlation coefficient](https://en.wikipedia.org/wiki/bivariate_correlation) of an <i>array</i> of paired values, where each pair is an array of two values. If your data is an array of objects, you can map each item in the array to a pair of values with optional <i>x-</i> and <i>y-</i>accessor functions.
+
 <a name="deviation" href="#deviation">#</a> arr.<b>deviation</b>(<i>array</i>[, <i>accessor</i>]) · [Source](https://github.com/HarryStevens/arraygeous/tree/master/src/deviation.js)
 
 Returns the standard deviation of an <i>array</i> of values. You can map each item in the array to a value with an optional <i>accessor</i> function. Ignores invalid values (null, undefined, NaN, Infinity).
@@ -98,10 +102,6 @@ Returns the median of an <i>array</i> of values. You can map each item in the ar
 <a name="min" href="#min">#</a> arr.<b>min</b>(<i>array</i>[, <i>accessor</i>]) · [Source](https://github.com/HarryStevens/arraygeous/tree/master/src/min.js)
 
 Returns the minimum of an <i>array</i> of values. You can map each item in the array to a value with an optional <i>accessor</i> function. Ignores invalid values (null, undefined, NaN, Infinity).
-
-<a name="pearson" href="#pearson">#</a> arr.<b>pearson</b>(<i>array</i>[, <i>x</i>, <i>y</i>]) · [Source](https://github.com/HarryStevens/arraygeous/tree/master/src/pearson.js)
-
-Returns the [Pearson correlation coefficient](https://en.wikipedia.org/wiki/Pearson_correlation_coefficient) of an <i>array</i> of paired values, where each pair is an array of two values. If your data is an array of objects, you can map each item in the array to a pair of values with optional <i>x-</i> and <i>y-</i>accessor functions.
 
 <a name="sum" href="#sum">#</a> arr.<b>sum</b>(<i>array</i>[, <i>accessor</i>]) · [Source](https://github.com/HarryStevens/arraygeous/tree/master/src/sum.js)
 

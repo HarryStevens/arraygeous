@@ -1,4 +1,5 @@
 export { closest } from "./src/closest";
+export { cor } from "./src/cor";
 export { deviation } from "./src/deviation";
 export { every } from "./src/every";
 export { extent } from "./src/extent";
@@ -10,7 +11,6 @@ export { max } from "./src/max";
 export { mean } from "./src/mean";
 export { median } from "./src/median";
 export { min } from "./src/min";
-export { pearson } from "./src/pearson";
 export { random } from "./src/random";
 export { some } from "./src/some";
 export { sort } from "./src/sort";
