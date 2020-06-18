@@ -97,7 +97,7 @@ Returns the mean of an <i>array</i> of values. You can map each item in the arra
 
 <a name="meanroll" href="#meanroll">#</a> arr.<b>meanroll</b>(<i>array</i>, <i>n</i>, [, <i>accessor</i>]) · [Source](https://github.com/HarryStevens/arraygeous/tree/master/src/meanroll.js)
 
-For each item in an <i>array</i> of values, calculates the rolling average of <i>n</i> items. You can optionally map an array of objects to an array of values with an <i>accessor</i> function.
+For each item in an <i>array</i> of values, calculates the rolling average of <i>n</i> items. You can map each item in the array to a value with an optional <i>accessor</i> function.
 
 <a name="median" href="#median">#</a> arr.<b>median</b>(<i>array</i>[, <i>accessor</i>]) · [Source](https://github.com/HarryStevens/arraygeous/tree/master/src/median.js)
 
