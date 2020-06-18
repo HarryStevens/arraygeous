@@ -6,8 +6,8 @@ A JavaScript library for lightning fast array manipulation. [![Build Status](htt
 ### Web browser
 In vanilla, a `arr` global is exported. You can use the latest version from unpkg.
 ```html
-<script src="https://unpkg.com/arraygeous@0.1.11/build/arraygeous.js"></script>
-<script src="https://unpkg.com/arraygeous@0.1.11/build/arraygeous.min.js"></script>
+<script src="https://unpkg.com/arraygeous@0.1.12/build/arraygeous.js"></script>
+<script src="https://unpkg.com/arraygeous@0.1.12/build/arraygeous.min.js"></script>
 ```
 If you'd rather host it yourself, download the latest release from the [`build` directory](https://github.com/HarryStevens/arraygeous/tree/master/build).
 
@@ -94,6 +94,10 @@ Returns the maximum of an <i>array</i> of values. You can map each item in the a
 <a name="mean" href="#mean">#</a> arr.<b>mean</b>(<i>array</i>[, <i>accessor</i>]) · [Source](https://github.com/HarryStevens/arraygeous/tree/master/src/mean.js)
 
 Returns the mean of an <i>array</i> of values. You can map each item in the array to a value with an optional <i>accessor</i> function. Ignores invalid values (null, undefined, NaN, Infinity).
+
+<a name="meanroll" href="#meanroll">#</a> arr.<b>meanroll</b>(<i>array</i>, <i>n</i>, [, <i>accessor</i>]) · [Source](https://github.com/HarryStevens/arraygeous/tree/master/src/meanroll.js)
+
+For each item in an <i>array</i> of values, calculates the rolling average of <i>n</i> items. You can optionally map an array of objects to an array of values with an <i>accessor</i> function.
 
 <a name="median" href="#median">#</a> arr.<b>median</b>(<i>array</i>[, <i>accessor</i>]) · [Source](https://github.com/HarryStevens/arraygeous/tree/master/src/median.js)
 

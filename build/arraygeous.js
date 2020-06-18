@@ -182,6 +182,19 @@
     return sum / n;
   }
 
+  // You can optionally map an array of objects to an array of values with an accessor function.
+
+  function meanroll(arr, n, fn) {
+    var output = [];
+    if (fn) arr = map(arr, fn);
+
+    for (var i = 1, l = arr.length; i <= l; i++) {
+      output[i - 1] = mean(arr.slice(Math.max(0, i - n), i));
+    }
+
+    return output;
+  }
+
   // Sorts an array according to an optional accessor function.
   function sort(arr, fn, order) {
     var copy = arr.slice(),
@@ -318,6 +331,7 @@
   exports.map = map;
   exports.max = max;
   exports.mean = mean;
+  exports.meanroll = meanroll;
   exports.median = median;
   exports.min = min;
   exports.random = random;
