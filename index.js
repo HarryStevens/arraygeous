@@ -1,6 +1,8 @@
 export { closest } from "./src/closest";
 export { cor } from "./src/cor";
+export { cumsum } from "./src/cumsum";
 export { deviation } from "./src/deviation";
+export { diff } from "./src/diff";
 export { every } from "./src/every";
 export { extent } from "./src/extent";
 export { filter } from "./src/filter";

@@ -6,8 +6,8 @@ A JavaScript library for lightning fast array manipulation. [![Build Status](htt
 ### Web browser
 In vanilla, a `arr` global is exported. You can use the latest version from unpkg.
 ```html
-<script src="https://unpkg.com/arraygeous@0.1.12/build/arraygeous.js"></script>
-<script src="https://unpkg.com/arraygeous@0.1.12/build/arraygeous.min.js"></script>
+<script src="https://unpkg.com/arraygeous@0.1.13/build/arraygeous.js"></script>
+<script src="https://unpkg.com/arraygeous@0.1.13/build/arraygeous.min.js"></script>
 ```
 If you'd rather host it yourself, download the latest release from the [`build` directory](https://github.com/HarryStevens/arraygeous/tree/master/build).
 
@@ -79,9 +79,17 @@ Returns the unique values of an <i>array</i>. You can map each item in the array
 
 Returns the [correlation coefficient](https://en.wikipedia.org/wiki/bivariate_correlation) of an <i>array</i> of paired values, where each pair is an array of two values. If your data is an array of objects, you can map each item in the array to a pair of values with optional <i>x-</i> and <i>y-</i>accessor functions.
 
+<a name="cumsum" href="#cumsum">#</a> arr.<b>cumsum</b>(<i>array</i>[, <i>accessor</i>]) · [Source](https://github.com/HarryStevens/arraygeous/tree/master/src/cumsum.js)
+
+Returns the iterated cumulative sum of an <i>array</i> of values. You can map each item in the array to a value with an optional <i>accessor</i> function. Ignores invalid values (null, undefined, NaN, Infinity).
+
 <a name="deviation" href="#deviation">#</a> arr.<b>deviation</b>(<i>array</i>[, <i>accessor</i>]) · [Source](https://github.com/HarryStevens/arraygeous/tree/master/src/deviation.js)
 
 Returns the standard deviation of an <i>array</i> of values. You can map each item in the array to a value with an optional <i>accessor</i> function. Ignores invalid values (null, undefined, NaN, Infinity).
+
+<a name="diff" href="#diff">#</a> arr.<b>diff</b>(<i>array</i>[, <i>accessor</i>[, <i>lag</i>]]) · [Source](https://github.com/HarryStevens/arraygeous/tree/master/src/diff.js)
+
+Returns lagged and iterated differences of an <i>array</i> of values. You can map each item in the array to a value with an optional <i>accessor</i> function. You can pass a third a third argument, <i>lag</i>, which is an integer indicating how many indices back to calculate the lag
 
 <a name="extent" href="#extent">#</a> arr.<b>extent</b>(<i>array</i>[, <i>accessor</i>]) · [Source](https://github.com/HarryStevens/arraygeous/tree/master/src/extent.js)
 

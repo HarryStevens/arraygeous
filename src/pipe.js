@@ -1,5 +1,7 @@
 import { closest } from "./closest";
+import { cumsum } from "./cumsum";
 import { deviation } from "./deviation";
+import { diff } from "./diff";
 import { every } from "./every";
 import { extent } from "./extent";
 import { flatten } from "./flatten";
@@ -18,7 +20,9 @@ import { unique } from "./unique";
 
 const fns = [
   closest,
+  cumsum,
   deviation,
+  diff,
   every,
   extent,
   filter,

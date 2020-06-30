@@ -56,6 +56,22 @@
     return (n * xySum - xSum * ySum) / Math.sqrt((n * x2Sum - xSum * xSum) * (n * y2Sum - ySum * ySum));
   }
 
+  // Returns the cumulative sum of an array.
+  // You can map each item in the array to a value with an optional accessor function.
+  // Ignores invalid values (null, undefined, NaN, Infinity).
+  function cumsum(arr, fn) {
+    var out = [],
+        n = arr.length;
+
+    for (var i = 0; i < n; i++) {
+      var d = fn ? fn(arr[i], i, arr) : arr[i];
+      if (d == null || !isFinite(d)) d = 0;
+      out[i] = i === 0 ? d : d + out[i - 1];
+    }
+
+    return out;
+  }
+
   // Returns the maximum of an array of values.
   // You can map each item in the array to a value with an optional accessor function.
   // Ignores invalid values (null, undefined, NaN, Infinity).
@@ -76,6 +92,34 @@
     }
 
     if (count > 1) return Math.sqrt(sum / (count - 1));
+  }
+
+  // Returns a new array with the result of calling an accessor function for each array element.
+  function map(arr, fn) {
+    var out = [];
+
+    for (var i = 0, l = arr.length; i < l; i++) {
+      out.push(fn(arr[i], i, arr));
+    }
+
+    return out;
+  }
+
+  // You can map each item in the array to a new value with an optional accessor function.
+  // You can pass a third a third argument, lag, which is an integer indicating how many indices back to calculate the lag
+
+  function diff(arr, fn) {
+    var lag = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 1;
+    var input = fn ? map(arr, fn) : arr,
+        out = [],
+        n = arr.length;
+
+    for (var i = 0; i < n; i++) {
+      var d = input[i];
+      out[i] = i < lag ? d : d - input[i - lag];
+    }
+
+    return out;
   }
 
   // Returns a boolean representing whether all items in an array pass a test, provided as an accessor function.
@@ -116,17 +160,6 @@
     for (var i = 0, l = arr.length; i < l; i++) {
       var d = arr[i];
       if (fn(d, i, arr)) out.push(d);
-    }
-
-    return out;
-  }
-
-  // Returns a new array with the result of calling an accessor function for each array element.
-  function map(arr, fn) {
-    var out = [];
-
-    for (var i = 0, l = arr.length; i < l; i++) {
-      out.push(fn(arr[i], i, arr));
     }
 
     return out;
@@ -298,7 +331,7 @@
     return out;
   }
 
-  var fns = [closest, deviation, every, extent, filter, flatten, includes, map, max, mean, median, min, random, some, sort, sum, unique];
+  var fns = [closest, cumsum, deviation, diff, every, extent, filter, flatten, includes, map, max, mean, median, min, random, some, sort, sum, unique];
   function pipe(arr) {
     var plummer = {};
     plummer.curr = arr;
@@ -322,7 +355,9 @@
 
   exports.closest = closest;
   exports.cor = cor;
+  exports.cumsum = cumsum;
   exports.deviation = deviation;
+  exports.diff = diff;
   exports.every = every;
   exports.extent = extent;
   exports.filter = filter;
