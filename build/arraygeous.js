@@ -1,4 +1,4 @@
-// https://github.com/HarryStevens/arraygeous#readme Version 0.1.12. Copyright 2020 Harry Stevens.
+// https://github.com/HarryStevens/arraygeous#readme Version 0.1.13. Copyright 2020 Harry Stevens.
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
   typeof define === 'function' && define.amd ? define(['exports'], factory) :
