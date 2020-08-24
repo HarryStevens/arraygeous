@@ -46,11 +46,14 @@
       var d = arr[i],
           dx = xfn(d, i, arr),
           dy = yfn(d, i, arr);
-      xSum += dx;
-      ySum += dy;
-      xySum += dx * dy;
-      x2Sum += dx * dx;
-      y2Sum += dy * dy;
+
+      if (dx != null && isFinite(dx) && dy != null && isFinite(dy)) {
+        xSum += dx;
+        ySum += dy;
+        xySum += dx * dy;
+        x2Sum += dx * dx;
+        y2Sum += dy * dy;
+      }
     }
 
     return (n * xySum - xSum * ySum) / Math.sqrt((n * x2Sum - xSum * xSum) * (n * y2Sum - ySum * ySum));
