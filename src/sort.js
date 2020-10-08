@@ -13,7 +13,7 @@ export function sort(arr, fn, order){
   // Separate invalid values
   for (let iter = 0, len = copy.length; iter < len; iter++){
     const d = copy[iter], value = fn ? fn(d, iter, copy) : d;
-    if (fn ? fn(d, iter, copy) : d) {
+    if (value || value === 0) {
       valid.push(d);
 
       if (typeof val !== "number") numSort = false;
