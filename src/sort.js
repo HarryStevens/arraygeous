@@ -1,6 +1,6 @@
 // Sorts an array according to an optional accessor function.
 // Defaults to ascending order, but you can return descending order by specifying the third argument, order, as the string "desc".
-// Dependencies: every, filter
+// Dependencies: flatten
 import { flatten } from "./flatten";
 
 export function sort(arr, fn, order){
@@ -44,5 +44,5 @@ export function sort(arr, fn, order){
     
   });
 
-  return flatten([valid, invalid]);
+  return invalid.length ? flatten([valid, invalid]) : valid;
 }

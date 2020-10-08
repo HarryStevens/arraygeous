@@ -267,7 +267,7 @@
         }
       }
     });
-    return flatten([valid, invalid]);
+    return invalid.length ? flatten([valid, invalid]) : valid;
   }
 
   function median(arr, fn) {
