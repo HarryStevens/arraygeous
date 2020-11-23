@@ -6,8 +6,8 @@ A JavaScript library for lightning fast array manipulation. [![Build Status](htt
 ### Web browser
 In vanilla, a `arr` global is exported. You can use the latest version from unpkg.
 ```html
-<script src="https://unpkg.com/arraygeous@0.1.17/build/arraygeous.js"></script>
-<script src="https://unpkg.com/arraygeous@0.1.17/build/arraygeous.min.js"></script>
+<script src="https://unpkg.com/arraygeous@0.1.18/build/arraygeous.js"></script>
+<script src="https://unpkg.com/arraygeous@0.1.18/build/arraygeous.min.js"></script>
 ```
 If you'd rather host it yourself, download the latest release from the [`build` directory](https://github.com/HarryStevens/arraygeous/tree/master/build).
 
@@ -39,6 +39,10 @@ Returns a boolean representing whether every item in an <i>array</i> passes a <i
 
 Returns a new array with every element in an <i>array</i> that passes a <i>test</i>, specified as a function.
 
+<a name="find" href="#find">#</a> arr.<b>find</b>(<i>array</i>, <i>test</i>) · [Source](https://github.com/HarryStevens/arraygeous/tree/master/src/find.js)
+
+Returns the value of the first element in an <i>array</i> that passes a <i>test</i>, specified as a function.
+
 <a name="includes" href="#includes">#</a> arr.<b>includes</b>(<i>array</i>, <i>value</i>[, <i>start</i>]) · [Source](https://github.com/HarryStevens/arraygeous/tree/master/src/includes.js)
 
 Returns a boolean representing whether an <i>array</i> includes a <i>value</i>. You can specify where in the array to begin the seach with an optional <i>start</i> index.
@@ -56,6 +60,10 @@ Returns a boolean representing whether any item in an <i>array</i> passes a <i>t
 <a name="closest" href="#closest">#</a> arr.<b>closest</b>(<i>array</i>, <i>value</i>[, <i>accessor</i>]) · [Source](https://github.com/HarryStevens/arraygeous/tree/master/src/closest.js)
 
 Returns the closest element in an <i>array</i> to a <i>value</i>, ignoring invalid values (null, undefined, NaN, Infinity) in the array. The array can be mapped to an optional <i>accessor</i> function.
+
+<a name="count" href="#count">#</a> arr.<b>count</b>(<i>array</i>[, <i>accessor</i>]) · [Source](https://github.com/HarryStevens/arraygeous/tree/master/src/count.js)
+
+Returns an array of objects, where each object represents a unique value from an input <i>array</i>, according to an optional <i>accessor</i> function, and the number of items that value appears in the array.
 
 <a name="flatten" href="#flatten">#</a> arr.<b>flatten</b>(<i>array</i>[, <i>accessor</i>]) · [Source](https://github.com/HarryStevens/arraygeous/tree/master/src/flatten.js)
 

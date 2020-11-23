@@ -59,6 +59,65 @@
     return (n * xySum - xSum * ySum) / Math.sqrt((n * x2Sum - xSum * xSum) * (n * y2Sum - ySum * ySum));
   }
 
+  // Returns the value of the first element in an array that passes a test, specified as a function.
+  function find(arr, fn) {
+    var out;
+
+    for (var i = 0, l = arr.length; i < l; i++) {
+      var d = arr[i];
+
+      if (fn(d, i, arr)) {
+        out = d;
+        break;
+      }
+    }
+
+    return out;
+  }
+
+  // Determines whether an array contains a specified element.
+  // This method returns true if the array contains the element, and false if not.
+  // The optional start parameter, which defaults 0, specifies at which position in the array to start the search.
+  function includes(arr, value) {
+    var start = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0;
+    var includes = false;
+
+    for (var i = start; i < arr.length; i++) {
+      if (arr[i] === value) {
+        includes = true;
+        break;
+      }
+    }
+
+    return includes;
+  }
+
+  function count(arr, fn) {
+    var out = [];
+
+    var _loop = function _loop(i, n) {
+      var key = fn ? fn(arr[i], i, arr) : arr[i];
+      var f = find(out, function (d0) {
+        return d0.key === key;
+      });
+
+      if (!f) {
+        out.push({
+          key: key,
+          count: 1
+        });
+      } else {
+        f.count++;
+      }
+    };
+
+    for (var i = 0, n = arr.length; i < n; i++) {
+      _loop(i, n);
+    }
+
+    return out;
+  }
+
   // Returns the cumulative sum of an array.
   // You can map each item in the array to a value with an optional accessor function.
   // Ignores invalid values (null, undefined, NaN, Infinity).
@@ -170,23 +229,6 @@
 
   function flatten(arr, fn) {
     return [].concat.apply([], fn ? map(arr, fn) : arr);
-  }
-
-  // Determines whether an array contains a specified element.
-  // This method returns true if the array contains the element, and false if not.
-  // The optional start parameter, which defaults 0, specifies at which position in the array to start the search.
-  function includes(arr, value) {
-    var start = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0;
-    var includes = false;
-
-    for (var i = start; i < arr.length; i++) {
-      if (arr[i] === value) {
-        includes = true;
-        break;
-      }
-    }
-
-    return includes;
   }
 
   // Returns the maximum value of an array according to an optional accessor function.
@@ -358,12 +400,14 @@
 
   exports.closest = closest;
   exports.cor = cor;
+  exports.count = count;
   exports.cumsum = cumsum;
   exports.deviation = deviation;
   exports.diff = diff;
   exports.every = every;
   exports.extent = extent;
   exports.filter = filter;
+  exports.find = find;
   exports.flatten = flatten;
   exports.includes = includes;
   exports.map = map;
