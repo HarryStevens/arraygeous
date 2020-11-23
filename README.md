@@ -6,8 +6,8 @@ A JavaScript library for lightning fast array manipulation. [![Build Status](htt
 ### Web browser
 In vanilla, a `arr` global is exported. You can use the latest version from unpkg.
 ```html
-<script src="https://unpkg.com/arraygeous@0.1.18/build/arraygeous.js"></script>
-<script src="https://unpkg.com/arraygeous@0.1.18/build/arraygeous.min.js"></script>
+<script src="https://unpkg.com/arraygeous@0.1.17/build/arraygeous.js"></script>
+<script src="https://unpkg.com/arraygeous@0.1.17/build/arraygeous.min.js"></script>
 ```
 If you'd rather host it yourself, download the latest release from the [`build` directory](https://github.com/HarryStevens/arraygeous/tree/master/build).
 
