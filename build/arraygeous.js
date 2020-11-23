@@ -244,7 +244,7 @@
 
       if (value || value === 0) {
         valid.push(d);
-        if (typeof val !== "number") numSort = false;
+        if (typeof value !== "number") numSort = false;
       } else {
         invalid.push(d);
       }
