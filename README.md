@@ -6,8 +6,8 @@ A JavaScript library for lightning fast array manipulation. [![Build Status](htt
 ### Web browser
 In vanilla, a `arr` global is exported. You can use the latest version from unpkg.
 ```html
-<script src="https://unpkg.com/arraygeous@0.1.18/build/arraygeous.js"></script>
-<script src="https://unpkg.com/arraygeous@0.1.18/build/arraygeous.min.js"></script>
+<script src="https://unpkg.com/arraygeous@0.1.19/build/arraygeous.js"></script>
+<script src="https://unpkg.com/arraygeous@0.1.19/build/arraygeous.min.js"></script>
 ```
 If you'd rather host it yourself, download the latest release from the [`build` directory](https://github.com/HarryStevens/arraygeous/tree/master/build).
 
@@ -107,6 +107,10 @@ Returns the minimum and maximum, represented as [minimum, maximum], of an <i>arr
 
 Returns the maximum of an <i>array</i> of values. You can map each item in the array to a value with an optional <i>accessor</i> function. Ignores invalid values (null, undefined, NaN, Infinity).
 
+<a name="maxIndex" href="#maxIndex">#</a> arr.<b>maxIndex</b>(<i>array</i>[, <i>accessor</i>]) · [Source](https://github.com/HarryStevens/arraygeous/tree/master/src/maxIndex.js)
+
+Returns the index of the maximum of an <i>array</i> of values. You can map each item in the array to a value with an optional <i>accessor</i> function. Ignores invalid values (null, undefined, NaN, Infinity).
+
 <a name="mean" href="#mean">#</a> arr.<b>mean</b>(<i>array</i>[, <i>accessor</i>]) · [Source](https://github.com/HarryStevens/arraygeous/tree/master/src/mean.js)
 
 Returns the mean of an <i>array</i> of values. You can map each item in the array to a value with an optional <i>accessor</i> function. Ignores invalid values (null, undefined, NaN, Infinity).
@@ -122,6 +126,10 @@ Returns the median of an <i>array</i> of values. You can map each item in the ar
 <a name="min" href="#min">#</a> arr.<b>min</b>(<i>array</i>[, <i>accessor</i>]) · [Source](https://github.com/HarryStevens/arraygeous/tree/master/src/min.js)
 
 Returns the minimum of an <i>array</i> of values. You can map each item in the array to a value with an optional <i>accessor</i> function. Ignores invalid values (null, undefined, NaN, Infinity).
+
+<a name="minIndex" href="#minIndex">#</a> arr.<b>minIndex</b>(<i>array</i>[, <i>accessor</i>]) · [Source](https://github.com/HarryStevens/arraygeous/tree/master/src/minIndex.js)
+
+Returns the index of the minimum of an <i>array</i> of values. You can map each item in the array to a value with an optional <i>accessor</i> function. Ignores invalid values (null, undefined, NaN, Infinity).
 
 <a name="sum" href="#sum">#</a> arr.<b>sum</b>(<i>array</i>[, <i>accessor</i>]) · [Source](https://github.com/HarryStevens/arraygeous/tree/master/src/sum.js)
 

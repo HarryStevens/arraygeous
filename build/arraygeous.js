@@ -243,6 +243,23 @@
     return max;
   }
 
+  // Returns the index of the maximum value of an array according to an optional accessor function.
+  function maxIndex(arr, fn) {
+    var max = -Infinity,
+        maxIndex = -1;
+
+    for (var i = 0, n = arr.length; i < n; i++) {
+      var d = fn ? fn(arr[i], i, arr) : arr[i];
+
+      if (d != null && isFinite(d) && d > max) {
+        max = d;
+        maxIndex = i;
+      }
+    }
+
+    return maxIndex;
+  }
+
   // Returns the mean of an array of values. You can map each item in the array to a value with an optional accessor function.
   function mean(arr, fn) {
     var sum = 0,
@@ -332,6 +349,23 @@
     return min;
   }
 
+  // Returns the index of the minimum value of an array according to an optional accessor function.
+  function minIndex(arr, fn) {
+    var min = Infinity,
+        minIndex = -1;
+
+    for (var i = 0, n = arr.length; i < n; i++) {
+      var d = fn ? fn(arr[i], i, arr) : arr[i];
+
+      if (d != null && isFinite(d) && d < min) {
+        min = d;
+        minIndex = i;
+      }
+    }
+
+    return minIndex;
+  }
+
   // Returns a random item from an array
   function random(arr) {
     return arr[Math.floor(Math.random() * arr.length)];
@@ -412,10 +446,12 @@
   exports.includes = includes;
   exports.map = map;
   exports.max = max;
+  exports.maxIndex = maxIndex;
   exports.mean = mean;
   exports.meanroll = meanroll;
   exports.median = median;
   exports.min = min;
+  exports.minIndex = minIndex;
   exports.random = random;
   exports.some = some;
   exports.sort = sort;
