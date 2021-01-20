@@ -1,4 +1,4 @@
-// https://github.com/HarryStevens/arraygeous#readme Version 0.1.19. Copyright 2020 Harry Stevens.
+// https://github.com/HarryStevens/arraygeous#readme Version 0.1.19. Copyright 2021 Harry Stevens.
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
   typeof define === 'function' && define.amd ? define(['exports'], factory) :
@@ -134,7 +134,7 @@
     return out;
   }
 
-  // Returns the maximum of an array of values.
+  // Returns the standard deviation of an array of values.
   // You can map each item in the array to a value with an optional accessor function.
   // Ignores invalid values (null, undefined, NaN, Infinity).
   function deviation(arr, fn) {
@@ -410,6 +410,26 @@
     return out;
   }
 
+  // You can map each item in the array to a value with an optional accessor function.
+  // Ignores invalid values (null, undefined, NaN, Infinity).
+
+  function variance(arr, fn) {
+    var n = 0,
+        m = mean(arr, fn),
+        s = 0;
+
+    for (var i = 0; i < arr.length; i++) {
+      var d = fn ? fn(arr[i], i, arr) : arr[i];
+
+      if (d != null && isFinite(d)) {
+        s += Math.pow(d - m, 2);
+        n++;
+      }
+    }
+
+    if (n > 1) return s / (n - 1);
+  }
+
   var fns = [closest, cumsum, deviation, diff, every, extent, filter, flatten, includes, map, max, mean, median, min, random, some, sort, sum, unique];
   function pipe(arr) {
     var plummer = {};
@@ -457,6 +477,7 @@
   exports.sort = sort;
   exports.sum = sum;
   exports.unique = unique;
+  exports.variance = variance;
   exports.pipe = pipe;
 
   Object.defineProperty(exports, '__esModule', { value: true });

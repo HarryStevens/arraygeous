@@ -6,8 +6,8 @@ A JavaScript library for lightning fast array manipulation. [![Build Status](htt
 ### Web browser
 In vanilla, a `arr` global is exported. You can use the latest version from unpkg.
 ```html
-<script src="https://unpkg.com/arraygeous@0.1.19/build/arraygeous.js"></script>
-<script src="https://unpkg.com/arraygeous@0.1.19/build/arraygeous.min.js"></script>
+<script src="https://unpkg.com/arraygeous@0.1.20/build/arraygeous.js"></script>
+<script src="https://unpkg.com/arraygeous@0.1.20/build/arraygeous.min.js"></script>
 ```
 If you'd rather host it yourself, download the latest release from the [`build` directory](https://github.com/HarryStevens/arraygeous/tree/master/build).
 
@@ -134,3 +134,7 @@ Returns the index of the minimum of an <i>array</i> of values. You can map each 
 <a name="sum" href="#sum">#</a> arr.<b>sum</b>(<i>array</i>[, <i>accessor</i>]) · [Source](https://github.com/HarryStevens/arraygeous/tree/master/src/sum.js)
 
 Returns the sum of an <i>array</i>. You can map each item in the array to the value returned by an optional <i>accessor</i> function. Ignores invalid values (null, undefined, NaN, Infinity).
+
+<a name="variance" href="#variance">#</a> arr.<b>variance</b>(<i>array</i>[, <i>accessor</i>]) · [Source](https://github.com/HarryStevens/arraygeous/tree/master/src/variance.js)
+
+Returns the [variance](https://en.wikipedia.org/wiki/Variance) of an <i>array</i> of values. You can map each item in the array to a value with an optional <i>accessor</i> function. Ignores invalid values (null, undefined, NaN, Infinity).
