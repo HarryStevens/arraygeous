@@ -29,7 +29,8 @@
 
   // Returns the correlation coefficient for an array given optional x- and y-accessors
   function cor(arr, x, y) {
-    var n = arr.length,
+    var l = arr.length,
+        n = 0,
         xfn = x || function (d) {
       return d[0];
     },
@@ -42,12 +43,13 @@
         x2Sum = 0,
         y2Sum = 0;
 
-    for (var i = 0; i < n; i++) {
+    for (var i = 0; i < l; i++) {
       var d = arr[i],
           dx = xfn(d, i, arr),
           dy = yfn(d, i, arr);
 
       if (dx != null && isFinite(dx) && dy != null && isFinite(dy)) {
+        n++;
         xSum += dx;
         ySum += dy;
         xySum += dx * dy;
