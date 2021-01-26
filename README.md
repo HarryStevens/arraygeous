@@ -6,8 +6,8 @@ A JavaScript library for lightning fast array manipulation. [![Build Status](htt
 ### Web browser
 In vanilla, a `arr` global is exported. You can use the latest version from unpkg.
 ```html
-<script src="https://unpkg.com/arraygeous@0.1.21/build/arraygeous.js"></script>
-<script src="https://unpkg.com/arraygeous@0.1.21/build/arraygeous.min.js"></script>
+<script src="https://unpkg.com/arraygeous@0.1.22/build/arraygeous.js"></script>
+<script src="https://unpkg.com/arraygeous@0.1.22/build/arraygeous.min.js"></script>
 ```
 If you'd rather host it yourself, download the latest release from the [`build` directory](https://github.com/HarryStevens/arraygeous/tree/master/build).
 
@@ -42,6 +42,10 @@ Returns a new array with every element in an <i>array</i> that passes a <i>test<
 <a name="find" href="#find">#</a> arr.<b>find</b>(<i>array</i>, <i>test</i>) · [Source](https://github.com/HarryStevens/arraygeous/tree/master/src/find.js)
 
 Returns the value of the first element in an <i>array</i> that passes a <i>test</i>, specified as a function.
+
+<a name="findIndex" href="#findIndex">#</a> arr.<b>findIndex</b>(<i>array</i>, <i>test</i>) · [Source](https://github.com/HarryStevens/arraygeous/tree/master/src/findIndex.js)
+
+Returns the index of the first element in an <i>array</i> that passes a <i>test</i>, specified as a function. Returns -1 if no element passes the test.
 
 <a name="includes" href="#includes">#</a> arr.<b>includes</b>(<i>array</i>, <i>value</i>[, <i>start</i>]) · [Source](https://github.com/HarryStevens/arraygeous/tree/master/src/includes.js)
 
@@ -130,6 +134,10 @@ Returns the minimum of an <i>array</i> of values. You can map each item in the a
 <a name="minIndex" href="#minIndex">#</a> arr.<b>minIndex</b>(<i>array</i>[, <i>accessor</i>]) · [Source](https://github.com/HarryStevens/arraygeous/tree/master/src/minIndex.js)
 
 Returns the index of the minimum of an <i>array</i> of values. You can map each item in the array to a value with an optional <i>accessor</i> function. Ignores invalid values (null, undefined, NaN, Infinity).
+
+<a name="mode" href="#mode">#</a> arr.<b>mode</b>(<i>array</i>[, <i>accessor</i>]) · [Source](https://github.com/HarryStevens/arraygeous/tree/master/src/mode.js)
+
+Returns the mode or modes, represented as an array of numbers, of an <i>array</i> of values. You can map each item in the array to a value with an optional <i>accessor</i> function. Ignores invalid values (null, undefined, NaN, Infinity). If there is no mode, returns undefined.
 
 <a name="sum" href="#sum">#</a> arr.<b>sum</b>(<i>array</i>[, <i>accessor</i>]) · [Source](https://github.com/HarryStevens/arraygeous/tree/master/src/sum.js)
 

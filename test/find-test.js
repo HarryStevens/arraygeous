@@ -1,7 +1,7 @@
 const tape = require("tape"),
     arr = require("../");
 
-tape("filter returns a new array with every element in an array that passes a test", test => {
+tape("find returns the value of the first element in an array that passes a test, specified as a function.", test => {
   const start = [1, 1, 2, 2, 3];
   test.equal(arr.find(start, d => d === 1), 1);
   test.equal(arr.find(start, d => d === 2), 2);

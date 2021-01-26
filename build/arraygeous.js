@@ -229,6 +229,23 @@
     return out;
   }
 
+  // Returns the index of the first element in an array that passes a test, specified as a function.
+  // Returns -1 if no element passes the test.
+  function findIndex(arr, fn) {
+    var out = -1;
+
+    for (var i = 0, l = arr.length; i < l; i++) {
+      var d = arr[i];
+
+      if (fn(d, i, arr)) {
+        out = i;
+        break;
+      }
+    }
+
+    return out;
+  }
+
   function flatten(arr, fn) {
     return [].concat.apply([], fn ? map(arr, fn) : arr);
   }
@@ -368,6 +385,49 @@
     return minIndex;
   }
 
+  function unique(arr, fn) {
+    var out = [];
+
+    for (var i = 0, n = arr.length; i < n; i++) {
+      var d = fn ? fn(arr[i], i, arr) : arr[i];
+      if (!includes(out, d)) out.push(d);
+    }
+
+    return out;
+  }
+
+  // If there is no mode, returns undefined.
+
+  function mode(arr, fn) {
+    var vals = [],
+        max = 0;
+
+    var _loop = function _loop(i, l) {
+      var val = fn ? fn(arr[i], i, arr) : arr[i];
+
+      if (val != null && isFinite(val)) {
+        var count = 1;
+        var index = findIndex(vals, function (v) {
+          return v[0] === val;
+        });
+        if (index === -1) vals.push([val, count]);else count = ++vals[index][1];
+        if (count > max) max = count;
+      }
+    };
+
+    for (var i = 0, l = arr.length; i < l; i++) {
+      _loop(i, l);
+    }
+
+    return unique(vals, function (d) {
+      return d[1];
+    }).length == 1 ? undefined : map(filter(vals, function (d) {
+      return d[1] === max;
+    }), function (d) {
+      return d[0];
+    });
+  }
+
   // Returns a random item from an array
   function random(arr) {
     return arr[Math.floor(Math.random() * arr.length)];
@@ -399,17 +459,6 @@
     }
 
     return sum;
-  }
-
-  function unique(arr, fn) {
-    var out = [];
-
-    for (var i = 0, n = arr.length; i < n; i++) {
-      var d = fn ? fn(arr[i], i, arr) : arr[i];
-      if (!includes(out, d)) out.push(d);
-    }
-
-    return out;
   }
 
   // You can map each item in the array to a value with an optional accessor function.
@@ -464,6 +513,7 @@
   exports.extent = extent;
   exports.filter = filter;
   exports.find = find;
+  exports.findIndex = findIndex;
   exports.flatten = flatten;
   exports.includes = includes;
   exports.map = map;
@@ -474,6 +524,7 @@
   exports.median = median;
   exports.min = min;
   exports.minIndex = minIndex;
+  exports.mode = mode;
   exports.random = random;
   exports.some = some;
   exports.sort = sort;
